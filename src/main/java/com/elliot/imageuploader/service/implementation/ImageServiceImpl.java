@@ -57,7 +57,7 @@ public class ImageServiceImpl implements ImageService
     }
 
     private File convertToFile(final MultipartFile multipartFile)  {
-        File converted = new File(Objects.requireNonNull(multipartFile.getOriginalFilename()));
+        File converted = new File("./images/" + Objects.requireNonNull(multipartFile.getOriginalFilename()));
 
         try (FileOutputStream outputStream = new FileOutputStream(converted)){
             outputStream.write(multipartFile.getBytes());

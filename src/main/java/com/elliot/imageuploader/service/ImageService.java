@@ -7,6 +7,5 @@ import java.util.concurrent.CompletableFuture;
 
 public interface ImageService {
     void uploadImage(MultipartFile imageFile);
-
     CompletableFuture<S3ObjectInputStream> getImage(String imageName);
 }
