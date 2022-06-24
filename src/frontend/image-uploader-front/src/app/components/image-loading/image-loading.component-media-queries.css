@@ -1,0 +1,57 @@
+/* -------- DESKTOP --------*/
+
+@media only screen and (min-width: 900px) and (max-width: 7680px){
+  .parent-card {
+    transition: width .5s ease-in-out;
+  }
+}
+
+/* -------- MEDIUM DEVICES, TABLETS -------- */
+
+@media only screen and (min-width: 640px) and (max-width: 900px) {
+  /* CONTAINERS */
+  .parent-card {
+    box-shadow: none;
+    width: 26rem;
+    transition: width .5s ease-in-out;
+  }
+
+  /* TEXT */
+  h1 {
+    font-size: 1.75rem;
+  }
+}
+
+/* --------- MOBILE -------- */
+
+@media only screen and (min-width: 320px) and (max-width: 640px) {
+  /* CONTAINERS */
+  .parent-card {
+    box-shadow: none;
+    width: 17.5rem;
+    gap: 2.2rem;
+    transition: width .5s ease-in-out;
+  }
+
+  /* TEXT */
+  h1 {
+    font-size: 1.6rem;
+  }
+}
+
+/* -------- SMALL DEVICES -------- */
+
+@media only screen and (min-width: 0px) and (max-width: 320px) {
+  /* CONTAINERS */
+  .parent-card {
+    box-shadow: none;
+    gap: 2.2rem;
+    width: 13rem;
+    transition: width .5s ease-in-out;
+  }
+
+  /* TEXT */
+  h1 {
+    font-size: 1.3rem;
+  }
+}

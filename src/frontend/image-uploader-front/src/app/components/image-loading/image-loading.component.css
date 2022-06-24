@@ -1,0 +1,48 @@
+/* CARD */
+
+.parent-card {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: column;
+  gap: 2.8rem;
+  background-color: #FFF;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 1.5vmin;
+  min-height: 9.5vh;
+  width: 30rem;
+  padding: 2.2rem;
+}
+
+/* CARD CONTENTS */
+
+.progress-bar, .progress {
+  border-radius: 1.5vmin;
+}
+
+.progress-bar {
+  display: flex;
+  overflow: hidden;
+  background-color: var(--gray6);
+  width: 100%;
+  min-height: 0.6em;
+}
+
+.progress {
+  background-color: var(--blue1);
+  width: 20%;
+  transform-origin: 0 50%;
+  animation: loadingBar 1s linear infinite;
+}
+
+/* ANIMATION */
+
+@keyframes loadingBar {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(calc(40rem - 100%));
+  }
+}

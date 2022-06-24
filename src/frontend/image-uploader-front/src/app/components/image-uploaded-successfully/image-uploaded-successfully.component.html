@@ -1,0 +1,13 @@
+<div class="parent-card">
+  <header>
+    <i id="uploaded-icon" class="fa-solid fa-circle-check"></i>
+    <h1>Uploaded Successfully!</h1>
+  </header>
+  <div class="card-container">
+    <img class="uploaded-image" src="{{ sourceImage }}" alt=""/>
+    <div class="image-link-container">
+      <p class="image-link-text">{{ link }}</p>
+      <button class="image-link-copy" (click)="copyToClipboard(link)">Copy Link</button>
+    </div>
+  </div>
+</div>

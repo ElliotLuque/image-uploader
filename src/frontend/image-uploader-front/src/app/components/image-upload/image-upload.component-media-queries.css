@@ -1,0 +1,167 @@
+/* -------- DESKTOP --------*/
+
+@media only screen and (min-width: 900px) and (max-width: 7680px){
+  .parent-card {
+    transition: width .5s ease-in-out;
+  }
+}
+
+/* -------- MEDIUM DEVICES, TABLETS -------- */
+
+@media only screen and (min-width: 640px) and (max-width: 900px) {
+  /* CONTAINERS */
+  .parent-card {
+    width: 30rem;
+    transition: width .5s ease-in-out;
+  }
+  .image-uploader {
+    width: 70%;
+  }
+
+  /* TEXT */
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* --------- MOBILE -------- */
+
+@media only screen and (min-width: 320px) and (max-width: 640px) {
+  /* CONTAINERS */
+  header {
+    gap: 1rem;
+  }
+  .parent-card {
+    margin-top: 15%;
+    box-shadow: none;
+    padding: 0;
+    width: 100%;
+    transition: width .5s ease-in-out;
+  }
+  .card-container {
+    margin-top: 1.5rem;
+    gap: 2rem;
+  }
+  .image-uploader {
+    padding: 1rem;
+    gap: 2rem;
+    width: 80%;
+    min-height: 30vh;
+  }
+  .image-drag-drop {
+    width: 7.5rem;
+  }
+
+
+  /* TEXT */
+  .image-uploader-description{
+    font-size: 1rem;
+  }
+  .file-button {
+    padding: 0.9rem 1.8rem;
+    font-size: 1rem;
+  }
+  h1 {
+    font-size: 1.6rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* -------- SMALL DEVICES -------- */
+
+@media only screen and (min-width: 230px) and (max-width: 320px) {
+  /* CONTAINERS */
+  header {
+    gap: 1.3rem;
+  }
+  .parent-card {
+    margin-top: 20%;
+    box-shadow: none;
+    padding: 0;
+    width: 95%;
+    transition: width .5s ease-in-out;
+  }
+  .card-container {
+    margin-top: 1.5rem;
+    padding: 1.1rem;
+    gap: 2rem;
+  }
+  .image-uploader {
+    padding: 1rem;
+    gap: 2rem;
+    width: 80%;
+    min-height: 30vh;
+  }
+  .image-drag-drop {
+    width: 6rem;
+  }
+
+
+  /* TEXT */
+  .image-uploader-description{
+    font-size: 0.75rem;
+  }
+  .file-button {
+    padding: 0.7rem 1.6rem;
+    font-size: 0.9rem;
+  }
+  h1 {
+    font-size: 1.3rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/****** HEIGHT ******/
+@media all and (min-height: 800px) and (max-height: 1366px) and (min-width: 500px) and (max-width: 1366px) {
+  /* CONTAINERS */
+  .parent-card {
+    width: 30rem;
+    transition: width .5s ease-in-out;
+  }
+  .image-uploader {
+    padding: 1rem;
+    gap: 2rem;
+    width: 80%;
+    min-height: 20vh;
+  }
+
+  /* TEXT */
+  .image-uploader-description{
+    font-size: 1.2rem;
+  }
+  .image-drag-drop {
+    width: 8rem;
+  }
+  h1 {
+    font-size: 1.35rem;
+  }
+}
+
+@media all and (min-height: 0px) and (max-height: 800px) and (min-width: 500px) and (max-width: 1366px) {
+  /* CONTAINERS */
+  .parent-card {
+    width: 30rem;
+    transition: width .5s ease-in-out;
+  }
+  .image-uploader {
+    padding: 1rem;
+    gap: 2rem;
+    width: 85%;
+    min-height: 28vh;
+  }
+
+  /* TEXT */
+  .image-uploader-description{
+    font-size: 1.2rem;
+  }
+  .image-drag-drop {
+    width: 8rem;
+  }
+  h1 {
+    font-size: 1.35rem;
+  }
+}

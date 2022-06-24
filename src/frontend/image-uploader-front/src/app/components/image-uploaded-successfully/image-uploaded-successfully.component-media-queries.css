@@ -1,0 +1,138 @@
+/* -------- DESKTOP --------*/
+
+@media only screen and (min-width: 900px) and (max-width: 7680px){
+  .parent-card {
+    transition: width .5s ease-in-out;
+  }
+}
+
+/* -------- MEDIUM DEVICES, TABLETS -------- */
+
+@media only screen and (min-width: 640px) and (max-width: 900px) {
+  /* CONTAINERS */
+  .parent-card {
+    width: 30rem;
+    transition: width .5s ease-in-out;
+  }
+  .uploaded-image {
+    min-height: 25vh;
+  }
+
+  /* TEXT */
+  .image-link-copy {
+    padding: 0.4rem 1.3rem;
+  }
+  .image-link-text {
+    font-size: 1.2ch;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  #uploaded-icon {
+    font-size: 4ch;
+  }
+}
+
+/* --------- MOBILE -------- */
+
+@media only screen and (min-width: 320px) and (max-width: 640px) {
+  /* CONTAINERS */
+  header {
+    gap: 2.4rem;
+  }
+  .parent-card {
+    margin-top: 15%;
+    box-shadow: none;
+    padding: 0;
+    width: 100%;
+    transition: width .5s ease-in-out;
+  }
+  .uploaded-image {
+    min-height: 32vh;
+  }
+  .card-container {
+    margin-top: 7%;
+    gap: 3.5rem;
+  }
+
+  /* TEXT */
+  .image-link-copy {
+    font-size: 1.1ch;
+    padding: 0.4rem 1.3rem;
+  }
+  .image-link-text {
+    font-size: 1.1ch;
+  }
+  h1 {
+    font-size: 1.3rem;
+  }
+  #uploaded-icon {
+    font-size: 4ch;
+  }
+}
+
+/* -------- SMALL DEVICES -------- */
+
+@media only screen and (min-width: 0px) and (max-width: 320px) {
+  /* CONTAINERS */
+  header {
+    gap: 1.3rem;
+  }
+  .parent-card {
+    margin-top: 20%;
+    box-shadow: none;
+    padding: 0;
+    width: 95%;
+    transition: width .5s ease-in-out;
+  }
+  .uploaded-image {
+    min-height: 36vh;
+  }
+  .card-container {
+    margin-top: 1rem;
+    padding: 1.1rem;
+    gap: 2.6rem;
+  }
+
+  /* TEXT */
+  .image-link-copy {
+    font-size: 1.1ch;
+    padding: 0.4rem 0.7rem;
+  }
+  .image-link-text {
+    font-size: 1ch;
+  }
+  h1 {
+    font-size: 1.3rem;
+  }
+  #uploaded-icon {
+    font-size: 3.5ch;
+  }
+}
+
+/****** HEIGHT ******/
+
+@media only screen and (min-height: 0px) and (max-height: 650px) {
+  /* CONTAINERS */
+  .parent-card {
+    width: 30rem;
+    transition: width .5s ease-in-out;
+  }
+  .uploaded-image {
+    min-height: 22vh;
+  }
+
+  /* TEXT */
+  .image-link-copy {
+    padding: 0.4rem 1.3rem;
+  }
+  .image-link-text {
+    font-size: 1.21ch;
+  }
+  h1 {
+    font-size: 1.35rem;
+  }
+  #uploaded-icon {
+    font-size: 3.5ch;
+  }
+}
