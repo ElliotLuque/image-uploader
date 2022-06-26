@@ -1,15 +1,21 @@
 package com.elliot.imageuploader.service.implementation;
 
 import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.AmazonS3Exception;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import com.elliot.imageuploader.entity.Image;
+import com.elliot.imageuploader.entity.ImageContentTypes;
 import com.elliot.imageuploader.exception.ImageNotFoundException;
+import com.elliot.imageuploader.exception.WrongFileException;
 import com.elliot.imageuploader.service.ImageService;
+
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,9 +23,10 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.util.UUID;
+import java.io.OutputStream;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
+
 
 @RequiredArgsConstructor
 @Service
@@ -32,25 +39,30 @@ public class ImageServiceImpl implements ImageService
     private String s3BucketName;
 
     /**
-     * Upload an image to AWS S3 Storage*/
+     * Upload an image to AWS S3 Storage
+     */
     @Override
     @Async
-    public void uploadImage(MultipartFile file) {
-        File fileToUpload = convertToFile(file);
+    public CompletableFuture<Image> uploadImage(MultipartFile file) {
 
-        UUID uuid = UUID.randomUUID();
-        String fileName = "photo-" +  uuid + "." + fileToUpload.getName().split("\\.")[1];
+        // Content-Type handling
+        List<String> contentTypes = Arrays.stream(ImageContentTypes.values())
+                .map(ImageContentTypes::value)
+                .toList();
 
-        PutObjectRequest objectRequest = new PutObjectRequest(s3BucketName, fileName, fileToUpload);
-        s3Client.putObject(objectRequest);
-
-        try {
-            Files.delete(fileToUpload.toPath());
-        } catch (IOException e) {
-            throw new RuntimeException("File " + fileToUpload.toPath() + " could not be deleted...");
+        if (!contentTypes.contains(file.getContentType())) {
+            throw new WrongFileException("File uploaded should be an image...");
         }
 
+        File fileToUpload = convertToFile(file);
+        String fileName = "photo-" +  UUID.randomUUID() + "." + Objects.requireNonNull(file.getOriginalFilename()).split("\\.")[1];
+
+        s3Client.putObject(s3BucketName, fileName, fileToUpload);
+
+        Image image = new Image(fileName);
         log.info("File uploaded! Name: " + fileName);
+
+        return CompletableFuture.completedFuture(image);
     }
 
     /**
@@ -58,8 +70,9 @@ public class ImageServiceImpl implements ImageService
     @Override
     @Async
     public CompletableFuture<Image> findImageByName(String imageName) {
-        log.info("Fetching file: " + imageName);
         try {
+            log.info("Fetching file: " + imageName);
+
             S3ObjectInputStream imageBytes = s3Client.getObject(s3BucketName, imageName).getObjectContent();
             Image image = new Image(imageName, imageBytes);
 
@@ -71,18 +84,19 @@ public class ImageServiceImpl implements ImageService
     }
 
     /**
-     * Returns a File converted from MultipartFile*/
-    private File convertToFile(MultipartFile multipartFile)  {
-        File converted = new File("images/" + multipartFile.getOriginalFilename());
+     * Returns a File converted from a MultipartFile*/
+    protected File convertToFile(MultipartFile multipartFile) {
+        try {
+            File converted = File.createTempFile("file-", ".temp");
+            OutputStream outputStream = new FileOutputStream(converted);
 
-        try (FileOutputStream outputStream = new FileOutputStream(converted)){
             outputStream.write(multipartFile.getBytes());
+            outputStream.close();
+
+            return converted;
+
         } catch (IOException e) {
-            throw new RuntimeException("Multipart file could not be converted to File...");
+            throw new RuntimeException("MultipartFile with name " + multipartFile.getOriginalFilename() + " could not be converted to File...");
         }
-
-        log.info("Uploading to S3 with file path: " + converted.getAbsolutePath());
-
-        return converted;
     }
 }

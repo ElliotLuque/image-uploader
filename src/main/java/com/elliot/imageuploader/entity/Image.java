@@ -1,14 +1,13 @@
 package com.elliot.imageuploader.entity;
 
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@RequiredArgsConstructor
 public class Image {
-    private String imageName;
+    @NonNull private String imageName;
     private S3ObjectInputStream imageBytes;
 }
