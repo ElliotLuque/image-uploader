@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Clipboard} from "@angular/cdk/clipboard";
+import {ImageUploadService} from "../../image-upload-service";
 
 @Component({
   selector: 'app-uploaded-successfully',
@@ -8,10 +9,9 @@ import {Clipboard} from "@angular/cdk/clipboard";
 })
 export class ImageUploadedSuccessfullyComponent implements OnInit {
 
-  sourceImage: String = 'https://raw.githubusercontent.com/ElliotLuque/arch-purple-mountain-theme/main/config-files/.wallpapers/wallpaper-mousepad.jpg';
-  link: string = 'https://image-uploader-elliot.s3.eu-west-3.amazonaws.com/photo-0ca76e92-92d9-4b1d-a058-7b14ea4144d2.jpg';
+  link: string = this.imageUploadService.sourceImage;
 
-  constructor(private clipboard: Clipboard) { }
+  constructor(private clipboard: Clipboard, private imageUploadService: ImageUploadService) { }
 
   ngOnInit(): void {
   }
