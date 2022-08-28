@@ -1,9 +1,7 @@
 package com.elliot.imageuploader.service.implementation;
 
 import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.AmazonS3Exception;
-import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import com.elliot.imageuploader.entity.Image;
 import com.elliot.imageuploader.entity.ImageContentTypes;
@@ -11,7 +9,6 @@ import com.elliot.imageuploader.exception.ImageNotFoundException;
 import com.elliot.imageuploader.exception.WrongFileException;
 import com.elliot.imageuploader.service.ImageService;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -38,9 +35,6 @@ public class ImageServiceImpl implements ImageService
     @Value("${aws.s3.bucket.name}")
     private String s3BucketName;
 
-    /**
-     * Upload an image to AWS S3 Storage
-     */
     @Override
     @Async
     public CompletableFuture<Image> uploadImage(MultipartFile file) {
@@ -65,8 +59,6 @@ public class ImageServiceImpl implements ImageService
         return CompletableFuture.completedFuture(image);
     }
 
-    /**
-     * Retrieve an image by his name in AWS S3 Storage*/
     @Override
     @Async
     public CompletableFuture<Image> findImageByName(String imageName) {
@@ -83,8 +75,6 @@ public class ImageServiceImpl implements ImageService
         }
     }
 
-    /**
-     * Returns a File converted from a MultipartFile*/
     protected File convertToFile(MultipartFile multipartFile) {
         try {
             File converted = File.createTempFile("file-", ".temp");

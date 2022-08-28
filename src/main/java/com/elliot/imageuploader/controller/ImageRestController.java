@@ -22,11 +22,14 @@ import static com.elliot.imageuploader.entity.ImageContentTypes.*;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/api")
 public class ImageRestController {
     private final ImageServiceImpl imageService;
 
     @PostMapping("/upload")
-    public ResponseEntity<Object> uploadImage(@RequestParam("imageFile") MultipartFile imageFile) throws ExecutionException, InterruptedException {
+    public ResponseEntity<Object> uploadImage(@RequestParam("imageFile") MultipartFile imageFile)
+            throws ExecutionException, InterruptedException {
         CompletableFuture<Image> uploadedImage = imageService.uploadImage(imageFile);
 
         String baseURL = ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString();
@@ -35,13 +38,15 @@ public class ImageRestController {
         UploadResponse response = new UploadResponse(HttpStatus.CREATED.value(),
                 LocalDateTime.now(),
                 "Image uploaded successfully!",
-                imageFile.getOriginalFilename(), baseURL + "/image/" + imageUrl);
+                imageFile.getOriginalFilename(), baseURL + "/api/image/" + imageUrl);
+
 
         return new ResponseEntity<>(response,HttpStatus.CREATED);
     }
 
     @GetMapping("/image/{imageName}")
-    public ResponseEntity<Resource> getImageObject(@PathVariable("imageName") String imageName) throws ExecutionException, InterruptedException {
+    public ResponseEntity<Resource> getImageObject(@PathVariable("imageName") String imageName)
+            throws ExecutionException, InterruptedException {
         CompletableFuture<Image> image = imageService.findImageByName(imageName);
 
         String fileExtension = imageName.split("\\.")[1];
