@@ -4,13 +4,13 @@
     <h3>File should be Jpeg, Png... </h3>
   </header>
   <div class="card-container">
-    <section class="image-uploader">
+    <section class="image-uploader" DragDrop>
       <img class="image-drag-drop" src="./assets/image.svg" alt="img"/>
-      <input #fileInput style="display: none"  (change)="onFileInput($event)" type="file" accept=".jpg, .jpeg, .png">
+      <input #fileInput style="display: none" (change)="onFileInput($event)" type="file" accept=".jpg, .jpeg, .png">
       <p class="image-uploader-description">Drag & Drop your image here</p>
     </section>
     <h2>Or</h2>
-    <button id="file-chooser" class="file-button" type="button" (click)="onFileInput($event)">Choose a file</button>
+    <button id="file-chooser" class="file-button" type="button" (click)="fileInput.click()">Choose a file</button>
     <input #fileInput style="display: none"  (change)="onFileInput($event)" type="file" accept="image/jpeg,image/png,image/webp,image/bmp">
   </div>
 </div>
