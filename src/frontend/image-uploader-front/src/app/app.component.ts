@@ -1,24 +1,20 @@
-import {Component, ViewChild} from '@angular/core';
-import {AnchorDirective} from "./directives/anchor.directive";
-import {ImageUploadComponent} from "./components/image-upload/image-upload.component";
+import {Component} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {ImageUploadService} from "./image-upload-service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  @ViewChild(AnchorDirective, {static: true}) anchor!: AnchorDirective
+  constructor(private httpClient: HttpClient, private imageUploadService: ImageUploadService) { }
 
-  ngOnInit(): void {
-    this.loadComponent();
+  imgSta = this.imageUploadService.imgSta
+
+  get imageStatus(): number {
+    return this.imageUploadService.imageStatus
   }
 
-  loadComponent() {
-    const viewContainerRef = this.anchor.viewContainerRef;
-    viewContainerRef.clear();
-
-    const imageComp = viewContainerRef.createComponent(ImageUploadComponent);
-
-  }
 }

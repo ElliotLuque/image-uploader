@@ -6,9 +6,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ImageLoadingComponent } from './components/image-loading/image-loading.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 import { ImageUploadedSuccessfullyComponent } from './components/image-uploaded-successfully/image-uploaded-successfully.component';
-import { AnchorDirective } from './directives/anchor.directive';
 import { ClipboardAlertComponent } from './components/alerts/clipboard-alert/clipboard-alert.component';
 import { FileAlertComponent } from './components/alerts/file-alert/file-alert.component';
+import {HttpClientModule} from "@angular/common/http";
+import { DragDropDirective } from './drag-drop.directive';
 
 @NgModule({
   declarations: [
@@ -17,12 +18,13 @@ import { FileAlertComponent } from './components/alerts/file-alert/file-alert.co
     ImageLoadingComponent,
     ImageUploadComponent,
     ImageUploadedSuccessfullyComponent,
-    AnchorDirective,
     ClipboardAlertComponent,
-    FileAlertComponent
+    FileAlertComponent,
+    DragDropDirective
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
