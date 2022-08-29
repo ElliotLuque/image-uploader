@@ -9,6 +9,7 @@ import {ImageUploadService} from "./services/image-upload-service";
 })
 
 export class AppComponent {
+  title: string = "image-uploader-front";
   constructor(private httpClient: HttpClient, private imageUploadService: ImageUploadService) { }
 
   imgSta = this.imageUploadService.imgSta
