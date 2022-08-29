@@ -1,5 +1,5 @@
 import {Directive, HostBinding, HostListener} from '@angular/core';
-import {ImageUploadService} from "./image-upload-service";
+import {ImageUploadService} from "../services/image-upload-service";
 
 @Directive({
   selector: '[DragDrop]'

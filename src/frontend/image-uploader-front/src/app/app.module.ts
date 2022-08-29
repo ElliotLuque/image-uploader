@@ -9,7 +9,7 @@ import { ImageUploadedSuccessfullyComponent } from './components/image-uploaded-
 import { ClipboardAlertComponent } from './components/alerts/clipboard-alert/clipboard-alert.component';
 import { FileAlertComponent } from './components/alerts/file-alert/file-alert.component';
 import {HttpClientModule} from "@angular/common/http";
-import { DragDropDirective } from './drag-drop.directive';
+import { DragDropDirective } from './directives/drag-drop.directive';
 
 @NgModule({
   declarations: [

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Clipboard} from "@angular/cdk/clipboard";
-import {ImageUploadService} from "../../image-upload-service";
+import {ImageUploadService} from "../../services/image-upload-service";
 
 @Component({
   selector: 'app-uploaded-successfully',

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {ImageUploadService} from "./image-upload-service";
+import {ImageUploadService} from "./services/image-upload-service";
 
 @Component({
   selector: 'app-root',
