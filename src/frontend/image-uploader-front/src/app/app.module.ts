@@ -6,10 +6,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ImageLoadingComponent } from './components/image-loading/image-loading.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 import { ImageUploadedSuccessfullyComponent } from './components/image-uploaded-successfully/image-uploaded-successfully.component';
-import { ClipboardAlertComponent } from './components/alerts/clipboard-alert/clipboard-alert.component';
-import { FileAlertComponent } from './components/alerts/file-alert/file-alert.component';
+import { ToastComponent } from './components/alerts/toast/toast.component';
 import {HttpClientModule} from "@angular/common/http";
-import { DragDropDirective } from './directives/drag-drop.directive';
+import { DragDropDirective } from './directives/drag-drop/drag-drop.directive';
+import { ViewRefDirective } from './directives/view-ref/view-ref.directive';
 
 @NgModule({
   declarations: [
@@ -18,9 +18,9 @@ import { DragDropDirective } from './directives/drag-drop.directive';
     ImageLoadingComponent,
     ImageUploadComponent,
     ImageUploadedSuccessfullyComponent,
-    ClipboardAlertComponent,
-    FileAlertComponent,
-    DragDropDirective
+    ToastComponent,
+    DragDropDirective,
+    ViewRefDirective
   ],
   imports: [
     BrowserModule,

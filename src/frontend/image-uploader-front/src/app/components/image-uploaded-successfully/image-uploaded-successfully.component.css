@@ -1,3 +1,14 @@
+/* TOAST */
+.toast-container {
+  position: fixed;
+  display: flex;
+  flex-flow: column;
+  left: 80%;
+  top: 8%;
+  z-index: 10;
+}
+
+
 /* HEADER */
 
 header {

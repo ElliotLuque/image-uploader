@@ -1,0 +1,38 @@
+div {
+  font-family: 'Poppins', sans-serif;
+  background-color: #FFF;
+  padding: 1.9em;
+  margin-top: 1em;
+  font-size: 2.2ch;
+  font-weight: 450;
+  color: var(--gray2);
+  display: flex;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 1.5vmin;
+  will-change: transform;
+  --_duration: 2s;
+  --_travel-distance: 4;
+  animation:
+    fade-in 0.4s ease,
+    slide-in 0.4s ease,
+    fade-out 0.4s ease var(--_duration);
+}
+
+i {
+  vertical-align: middle;
+  font-size: 2.1ch;
+  padding-right: 0.75em;
+}
+
+@keyframes fade-in {
+  from { opacity: 0 }
+}
+
+@keyframes fade-out {
+  to { opacity: 0 }
+}
+
+@keyframes slide-in {
+  from { transform: translateY(var(--_travel-distance, 10px)) }
+}
