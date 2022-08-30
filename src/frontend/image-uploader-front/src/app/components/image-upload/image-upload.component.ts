@@ -36,7 +36,8 @@ export class ImageUploadComponent{
         next: data => {
           this.imageUploadService.imageStatus = this.imageUploadService.imgSta.Loading
           this.imageUploadService.imageURL = Object.values(data)[4]
-          interval(Math.random() * (700 - 530) + 530).subscribe( () => this.imageUploadService.imageStatus = this.imageUploadService.imgSta.Uploaded )
+          // 700-450ms for rendering uploaded successfully page
+          interval(Math.random() * (700 - 450) + 450).subscribe( () => this.imageUploadService.imageStatus = this.imageUploadService.imgSta.Uploaded )
         },
         error: () => { this.generateToast() }
       })

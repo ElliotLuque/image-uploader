@@ -21,12 +21,13 @@ export class ImageUploadService{
   private _imageStatus: ImageStatus = ImageStatus.Upload
 
   imageURL!: string
+  baseURL: string = "http://localhost:8080/api"
 
   addImage(file: File): Observable<Object> {
     const formData = new FormData();
     formData.append("imageFile", file)
 
-    return this.http.post("http://localhost:8080/api/upload", formData)
+    return this.http.post(this.baseURL + "/upload", formData)
   }
 
 }
