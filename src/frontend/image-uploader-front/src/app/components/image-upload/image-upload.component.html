@@ -1,11 +1,14 @@
+<div class="toast-container">
+  <ng-template ViewRef></ng-template>
+</div>
 <div class="parent-card">
   <header>
     <h1>Upload your image</h1>
     <h3>File should be Jpeg, Png... </h3>
   </header>
   <div class="card-container">
-    <section class="image-uploader" DragDrop>
-      <img class="image-drag-drop" src="./assets/image.svg" alt="img"/>
+    <section class="image-uploader" DragDrop (fileDropped)="fileDropped($event)">
+      <img draggable="false" class="image-drag-drop" src="./assets/image.svg" alt="img"/>
       <input #fileInput style="display: none" (change)="onFileInput($event)" type="file" accept=".jpg, .jpeg, .png">
       <p class="image-uploader-description">Drag & Drop your image here</p>
     </section>

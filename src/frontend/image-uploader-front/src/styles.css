@@ -10,6 +10,7 @@
   --gray4: #BDBDBD;
   --gray5: #F6F8FB;
   --gray6: #F2F2F2;
+  --red1: #CC0000;
 }
 
 * {
@@ -33,7 +34,7 @@ h1 {
 
 }
 
-app-root > *:not(router-outlet, app-footer, app-file-alert, app-toast) {
+app-root > *:not(router-outlet, app-footer, app-toast) {
   display: flex;
   min-height: 97vh;
   justify-content: center;

@@ -1,5 +1,6 @@
-import {Injectable, Input} from "@angular/core";
+import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 enum ImageStatus {
   Upload,
@@ -13,47 +14,19 @@ enum ImageStatus {
 export class ImageUploadService{
   constructor(private http:HttpClient) { }
 
-  @Input()
-  imageFile!: File
+  get imageStatus(): ImageStatus { return this._imageStatus; }
+  set imageStatus(value: ImageStatus) { this._imageStatus = value;}
 
+  public imgSta = ImageStatus
+  private _imageStatus: ImageStatus = ImageStatus.Upload
 
-  @Input()
-  private _imageStatus: ImageStatus = ImageStatus.Upload;
-  imgSta = ImageStatus;
+  imageURL!: string
 
-  set imageStatus(value: ImageStatus) {
-    this._imageStatus = value;
-  }
-  get imageStatus(): ImageStatus {
-    return this._imageStatus;
-  }
+  addImage(file: File): Observable<Object> {
+    const formData = new FormData();
+    formData.append("imageFile", file)
 
-  sourceImage:string = ''
-
-
-  selectFile(event: any) {
-    this.imageFile = event.target.files[0]
-    console.log('filename: ' +  this.imageFile.name)
+    return this.http.post("http://localhost:8080/api/upload", formData)
   }
 
-  selectFileDragDrop(event: any) {
-    this.imageFile = event.dataTransfer.files[0]
-    console.log('filename: ' +  this.imageFile.name)
-  }
-
-
-  uploadFile() {
-    this.imageStatus = ImageStatus.Loading
-    if (this.imageFile) {
-      const formData = new FormData();
-      formData.append("imageFile", this.imageFile)
-
-      const upload$ = this.http.post("http://localhost:8080/api/upload", formData).subscribe(data => {
-        this.sourceImage = Object.values(data)[4]
-        console.log(this.sourceImage)
-        this.imageStatus = ImageStatus.Uploaded
-        })
-    }
-
-  }
 }

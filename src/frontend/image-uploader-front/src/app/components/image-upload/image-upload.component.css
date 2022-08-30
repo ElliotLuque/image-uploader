@@ -1,3 +1,14 @@
+/* TOAST */
+.toast-container {
+  position: fixed;
+  display: flex;
+  flex-flow: column;
+  left: 70%;
+  top: 8%;
+  z-index: 10;
+}
+
+
 /* HEADER */
 
 header {
@@ -50,6 +61,7 @@ h3 {
 
 .image-uploader {
   display: flex;
+  cursor: default;
   flex-direction: column;
   justify-content: center;
   align-items: center;

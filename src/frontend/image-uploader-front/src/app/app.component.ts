@@ -13,9 +13,6 @@ export class AppComponent {
   constructor(private httpClient: HttpClient, private imageUploadService: ImageUploadService) { }
 
   imgSta = this.imageUploadService.imgSta
-
-  get imageStatus(): number {
-    return this.imageUploadService.imageStatus
-  }
+  get imageStatus(): number { return this.imageUploadService.imageStatus }
 
 }

@@ -1,5 +1,4 @@
-import {Directive, HostBinding, HostListener} from '@angular/core';
-import {ImageUploadService} from "../../services/image-upload-service";
+import {Directive, EventEmitter, HostBinding, HostListener, Output} from '@angular/core';
 
 @Directive({
   selector: '[DragDrop]'
@@ -7,9 +6,9 @@ import {ImageUploadService} from "../../services/image-upload-service";
 export class DragDropDirective {
 
   @HostBinding('class.fileover') fileOver: boolean | undefined
-  fileDropped!: File
+  @Output('fileDropped') fileDropped = new EventEmitter<File>();
 
-  constructor(private imageUploadService: ImageUploadService) { }
+  constructor() { }
 
   @HostListener('dragover', ['$event']) onDragOver(evt: any) {
     evt.preventDefault()
@@ -29,13 +28,7 @@ export class DragDropDirective {
 
     this.fileOver = false
 
-    const files = evt.dataTransfer.files
-
-    if (files.length > 0) {
-      this.fileDropped = files[0]
-      this.imageUploadService.selectFileDragDrop(evt)
-      this.imageUploadService.uploadFile()
-    }
+    const file = evt.dataTransfer.files[0]
+    this.fileDropped.emit(file)
   }
-
 }

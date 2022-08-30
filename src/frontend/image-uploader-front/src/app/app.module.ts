@@ -7,7 +7,7 @@ import { ImageLoadingComponent } from './components/image-loading/image-loading.
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 import { ImageUploadedSuccessfullyComponent } from './components/image-uploaded-successfully/image-uploaded-successfully.component';
 import { ToastComponent } from './components/alerts/toast/toast.component';
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule} from "@angular/common/http";
 import { DragDropDirective } from './directives/drag-drop/drag-drop.directive';
 import { ViewRefDirective } from './directives/view-ref/view-ref.directive';
 

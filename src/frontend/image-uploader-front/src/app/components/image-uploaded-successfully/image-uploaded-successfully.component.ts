@@ -6,7 +6,7 @@ import {ToastComponent} from "../alerts/toast/toast.component";
 import {interval} from "rxjs";
 
 @Component({
-  selector: 'app-uploaded-successfully',
+  selector: 'uploaded-successfully',
   templateUrl: './image-uploaded-successfully.component.html',
   styleUrls: ['./image-uploaded-successfully.component.css', './image-uploaded-successfully.component-media-queries.css']
 })
@@ -15,7 +15,7 @@ export class ImageUploadedSuccessfullyComponent {
   constructor(private clipboard: Clipboard, private imageUploadService: ImageUploadService) { }
 
   @ViewChild(ViewRefDirective) viewChild!: ViewRefDirective
-  link: string = this.imageUploadService.sourceImage;
+  link: string = this.imageUploadService.imageURL;
 
   copyToClipboard(link: string) {
     this.clipboard.copy(link)
