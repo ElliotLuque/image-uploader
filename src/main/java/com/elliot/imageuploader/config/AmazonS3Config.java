@@ -1,6 +1,6 @@
 package com.elliot.imageuploader.config;
 
-import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.auth.EnvironmentVariableCredentialsProvider;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,7 +18,7 @@ public class AmazonS3Config {
     public AmazonS3 getAmazonS3Client() {
         return AmazonS3ClientBuilder.standard()
                 .withRegion(regionName)
-                .withCredentials(new ProfileCredentialsProvider("image-uploader-user"))
+                .withCredentials(new EnvironmentVariableCredentialsProvider())
                 .build();
     }
 }
