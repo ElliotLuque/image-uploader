@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ImageUploadedSuccessfullyComponent } from './image-uploaded-successfully.component';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('ImageUploadedSuccessfullyComponent', () => {
   let component: ImageUploadedSuccessfullyComponent;
@@ -8,6 +9,7 @@ describe('ImageUploadedSuccessfullyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [ HttpClientTestingModule ],
       declarations: [ ImageUploadedSuccessfullyComponent ]
     })
     .compileComponents();
