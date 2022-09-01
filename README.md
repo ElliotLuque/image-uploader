@@ -3,11 +3,9 @@
 # Image Uploader
 
 
-
 A simple app for uploading and sharing your images.
 
 A challenge by **[devChallenges.io](devChallenges.io)**
-
 
 
 ![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)
@@ -20,16 +18,27 @@ A challenge by **[devChallenges.io](devChallenges.io)**
 
 ![use-gif]
 
-# Challenge 
+# 🔎 Overview 
 
-Create an Image Uploader application. Use any front-end libraries of your choice. Create your API. Don’t look at the existing solution. Fulfill user stories below:
+## 🛠 Built with
 
-- User story: I can drag and drop an image to upload it
-- User story: I can choose to select an image from my folder
-- User story: I can see a loader when uploading
-- User story: When the image is uploaded, I can see the image and copy it
-- User story: I can choose to copy to the clipboard
+# 🏆 Challenge 
 
+ Create an Image Uploader application. Use any front-end libraries of your choice. Create your API. Don’t look at the existing solution. Fulfill user stories below:
+
+ ✔ I can drag and drop an image to upload it 
+ 
+ ✔ I can choose to select an image from my folder 
+ 
+ ✔ I can see a loader when uploading
+
+ ✔ When the image is uploaded, I can see the image and copy it
+
+ ✔ I can choose to copy to the clipboard
+
+# 📘 License
+
+Image Uploader is released under the under terms of the
 
 [use-gif]: https://user-images.githubusercontent.com/72250839/187991907-93d79e66-648b-4f83-8678-d20e71f95843.gif
 [build-badge]: https://img.shields.io/github/workflow/status/ElliotLuque/image-uploader/CI
