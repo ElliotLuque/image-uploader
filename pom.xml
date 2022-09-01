@@ -10,12 +10,19 @@
     </parent>
     <groupId>com.elliot</groupId>
     <artifactId>image-uploader</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <name>image-uploader</name>
     <description>image-uploader</description>
     <properties>
         <java.version>18</java.version>
     </properties>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/ElliotLuque/image-uploader</url>
+        </repository>
+    </distributionManagement>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
