@@ -21,7 +21,7 @@ export class ImageUploadService{
   private _imageStatus: ImageStatus = ImageStatus.Upload
 
   imageURL!: string
-  baseURL: string = "http://localhost:8080/api"
+  baseURL: string = "https://images-uploader-elliot.herokuapp.com/api"
 
   addImage(file: File): Observable<Object> {
     const formData = new FormData();
