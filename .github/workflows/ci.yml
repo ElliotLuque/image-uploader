@@ -27,6 +27,9 @@ jobs:
   angular-build:
     name: Angular CI
     runs-on: ubuntu-22.04
+    defaults:
+      run:
+        working-directory: src/frontend/image-uploader-front
 
     steps:
       - name: Checkout
