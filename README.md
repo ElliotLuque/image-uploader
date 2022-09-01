@@ -38,7 +38,7 @@ A challenge by **[devChallenges.io](devChallenges.io)**
 
 # 📘 License
 
-Image Uploader is released under the under terms of the [GPL v3.0](LICENSE) 
+Image Uploader is released under the under terms of the [GPL v3.0 license](LICENSE) 
 
 [use-gif]: https://user-images.githubusercontent.com/72250839/187991907-93d79e66-648b-4f83-8678-d20e71f95843.gif
 [build-badge]: https://img.shields.io/github/workflow/status/ElliotLuque/image-uploader/CI
