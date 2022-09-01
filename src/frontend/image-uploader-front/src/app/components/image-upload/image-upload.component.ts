@@ -4,8 +4,16 @@ import {ViewRefDirective} from "../../directives/view-ref/view-ref.directive";
 import {ToastComponent} from "../alerts/toast/toast.component";
 import {interval, Subscription} from "rxjs";
 
+enum ImageFileTypes {
+  IMAGE_JPEG = "image/jpeg",
+  IMAGE_PNG = "image/png",
+  IMAGE_WEBP = "image/webp",
+  IMAGE_SVG = "image/svg+xml",
+  IMAGE_TIFF = "image/tiff"
+}
+
 @Component({
-  selector: 'image-upload',
+  selector: 'app-image-upload',
   templateUrl: './image-upload.component.html',
   styleUrls: ['./image-upload.component.css', 'image-upload.component-media-queries.css']
 })
@@ -18,28 +26,38 @@ export class ImageUploadComponent{
   imageFile!: File
   subscription!: Subscription
 
-
   onFileInput(event: any) {
     this.imageFile = event.target.files[0]
-    this.uploadFile()
+    const types = Object.values(ImageFileTypes)
+
+    if (types.includes(this.imageFile.type as string as ImageFileTypes)) {
+      this.uploadFile()
+    } else {
+      this.generateToast()
+    }
   }
 
   fileDropped(file: File) {
     this.imageFile = file
-    this.uploadFile()
+    const types = Object.values(ImageFileTypes)
+
+    if (types.includes(this.imageFile.type as string as ImageFileTypes)) {
+      this.uploadFile()
+    } else {
+      this.generateToast()
+    }
   }
 
   uploadFile = () => {
     const upload$ = this.imageUploadService.addImage(this.imageFile);
+    this.imageUploadService.imageStatus = this.imageUploadService.imgSta.Loading
     this.subscription = upload$
       .subscribe({
         next: data => {
-          this.imageUploadService.imageStatus = this.imageUploadService.imgSta.Loading
           this.imageUploadService.imageURL = Object.values(data)[4]
-          // 700-450ms for rendering uploaded successfully page
-          interval(Math.random() * (700 - 450) + 450).subscribe( () => this.imageUploadService.imageStatus = this.imageUploadService.imgSta.Uploaded )
+          this.imageUploadService.imageStatus = this.imageUploadService.imgSta.Uploaded
         },
-        error: () => { this.generateToast() }
+        error: () => this.imageUploadService.imageStatus = this.imageUploadService.imgSta.Upload
       })
   }
 

@@ -20,7 +20,7 @@ import { ViewRefDirective } from './directives/view-ref/view-ref.directive';
     ImageUploadedSuccessfullyComponent,
     ToastComponent,
     DragDropDirective,
-    ViewRefDirective
+    ViewRefDirective,
   ],
   imports: [
     BrowserModule,

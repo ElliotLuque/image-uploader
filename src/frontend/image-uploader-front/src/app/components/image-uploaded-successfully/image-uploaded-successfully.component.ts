@@ -6,7 +6,7 @@ import {ToastComponent} from "../alerts/toast/toast.component";
 import {interval} from "rxjs";
 
 @Component({
-  selector: 'uploaded-successfully',
+  selector: 'app-uploaded-successfully',
   templateUrl: './image-uploaded-successfully.component.html',
   styleUrls: ['./image-uploaded-successfully.component.css', './image-uploaded-successfully.component-media-queries.css']
 })
