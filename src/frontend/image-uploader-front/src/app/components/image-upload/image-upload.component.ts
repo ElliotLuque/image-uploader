@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnDestroy, ViewChild} from '@angular/core';
 import {ImageUploadService} from "../../services/image-upload-service";
 import {ViewRefDirective} from "../../directives/view-ref/view-ref.directive";
 import {ToastComponent} from "../alerts/toast/toast.component";
@@ -17,7 +17,7 @@ enum ImageFileTypes {
   templateUrl: './image-upload.component.html',
   styleUrls: ['./image-upload.component.css', 'image-upload.component-media-queries.css']
 })
-export class ImageUploadComponent{
+export class ImageUploadComponent implements OnDestroy{
 
   constructor(private imageUploadService: ImageUploadService) { }
 
@@ -26,35 +26,38 @@ export class ImageUploadComponent{
   imageFile!: File
   subscription!: Subscription
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
+  }
+
   onFileInput(event: any) {
     this.imageFile = event.target.files[0]
-    const types = Object.values(ImageFileTypes)
-
-    if (types.includes(this.imageFile.type as string as ImageFileTypes)) {
-      this.uploadFile()
-    } else {
-      this.generateToast()
-    }
+    this.uploadAction()
   }
 
   fileDropped(file: File) {
     this.imageFile = file
+    this.uploadAction()
+  }
+
+  uploadAction = () => {
     const types = Object.values(ImageFileTypes)
 
     if (types.includes(this.imageFile.type as string as ImageFileTypes)) {
-      this.uploadFile()
+      this.postImage()
     } else {
       this.generateToast()
     }
   }
 
-  uploadFile = () => {
+  postImage = () => {
     const upload$ = this.imageUploadService.addImage(this.imageFile);
     this.imageUploadService.imageStatus = this.imageUploadService.imgSta.Loading
     this.subscription = upload$
       .subscribe({
         next: data => {
           this.imageUploadService.imageURL = Object.values(data)[4]
+          console.log(this.imageUploadService.imageURL)
           this.imageUploadService.imageStatus = this.imageUploadService.imgSta.Uploaded
         },
         error: () => this.imageUploadService.imageStatus = this.imageUploadService.imgSta.Upload
