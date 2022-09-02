@@ -19,7 +19,7 @@ export class ImageUploadService{
   set imageStatus(value: ImageStatus) { this._imageStatus = value;}
 
   public imgSta = ImageStatus
-  private _imageStatus: ImageStatus = ImageStatus.Uploaded
+  private _imageStatus: ImageStatus = ImageStatus.Upload
 
   get imageURL(): string { return this._imageURL; }
   set imageURL(value: string) { this._imageURL = value; }
