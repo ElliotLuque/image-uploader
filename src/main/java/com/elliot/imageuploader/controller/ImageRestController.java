@@ -12,7 +12,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.time.LocalDateTime;
 import java.util.concurrent.CompletableFuture;
@@ -31,13 +30,14 @@ public class ImageRestController {
             throws ExecutionException, InterruptedException {
         CompletableFuture<Image> uploadedImage = imageService.uploadImage(imageFile);
 
-        String baseURL = ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString();
+        String baseURL = "https://images-image-uploader.up.railway.app";
         String imageUrl = uploadedImage.get().getImageName();
 
         UploadResponse response = new UploadResponse(HttpStatus.CREATED.value(),
                 LocalDateTime.now(),
                 "Image uploaded successfully!",
-                imageFile.getOriginalFilename(), baseURL + "/image/" + imageUrl);
+                imageFile.getOriginalFilename(),
+                baseURL + "/image/" + imageUrl);
 
 
         return new ResponseEntity<>(response,HttpStatus.CREATED);
