@@ -1,4 +1,4 @@
-import {Component, OnDestroy, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {ImageUploadService} from "../../services/image-upload-service";
 import {ViewRefDirective} from "../../directives/view-ref/view-ref.directive";
 import {ToastComponent} from "../alerts/toast/toast.component";
@@ -17,7 +17,7 @@ enum ImageFileTypes {
   templateUrl: './image-upload.component.html',
   styleUrls: ['./image-upload.component.css', 'image-upload.component-media-queries.css']
 })
-export class ImageUploadComponent implements OnDestroy{
+export class ImageUploadComponent {
 
   constructor(private imageUploadService: ImageUploadService) { }
 
@@ -25,10 +25,6 @@ export class ImageUploadComponent implements OnDestroy{
 
   imageFile!: File
   subscription!: Subscription
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe()
-  }
 
   onFileInput(event: any) {
     this.imageFile = event.target.files[0]
