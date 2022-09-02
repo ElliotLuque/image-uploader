@@ -37,7 +37,7 @@ public class ImageRestController {
         UploadResponse response = new UploadResponse(HttpStatus.CREATED.value(),
                 LocalDateTime.now(),
                 "Image uploaded successfully!",
-                imageFile.getOriginalFilename(), baseURL + "/api/image/" + imageUrl);
+                imageFile.getOriginalFilename(), baseURL + "/image/" + imageUrl);
 
 
         return new ResponseEntity<>(response,HttpStatus.CREATED);
