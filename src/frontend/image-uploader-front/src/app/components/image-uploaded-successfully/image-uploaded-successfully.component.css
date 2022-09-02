@@ -28,6 +28,17 @@ h1 {
   font-size: 6ch;
 }
 
+#back-button {
+  position: fixed;
+  top: 8%;
+  left: 8%;
+  cursor: pointer;
+}
+
+#back-button > img {
+  height: 3.3em;
+}
+
 /* CARD */
 
 .parent-card {

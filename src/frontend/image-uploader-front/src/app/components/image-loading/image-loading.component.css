@@ -3,7 +3,7 @@
 .parent-card {
   font-family: 'Poppins', sans-serif;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   flex-flow: column;
   gap: 2.8rem;

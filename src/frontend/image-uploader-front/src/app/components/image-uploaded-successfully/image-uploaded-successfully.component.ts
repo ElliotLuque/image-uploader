@@ -22,6 +22,11 @@ export class ImageUploadedSuccessfullyComponent {
     this.generateToast()
   }
 
+  backPage() {
+    this.imageUploadService.imageStatus = this.imageUploadService.imgSta.Upload
+    this.imageUploadService.imageURL = ''
+  }
+
   generateToast = () => {
     const componentRef = this.viewChild.viewContainerRef.createComponent<any>(ToastComponent)
 

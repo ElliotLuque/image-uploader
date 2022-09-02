@@ -12,15 +12,19 @@ enum ImageStatus {
   providedIn: 'root'
 })
 export class ImageUploadService{
+
   constructor(private http:HttpClient) { }
 
   get imageStatus(): ImageStatus { return this._imageStatus; }
   set imageStatus(value: ImageStatus) { this._imageStatus = value;}
 
   public imgSta = ImageStatus
-  private _imageStatus: ImageStatus = ImageStatus.Upload
+  private _imageStatus: ImageStatus = ImageStatus.Uploaded
 
-  imageURL!: string
+  get imageURL(): string { return this._imageURL; }
+  set imageURL(value: string) { this._imageURL = value; }
+
+  private _imageURL!: string
   baseURL: string = "https://images-image-uploader.up.railway.app"
 
   addImage(file: File): Observable<Object> {

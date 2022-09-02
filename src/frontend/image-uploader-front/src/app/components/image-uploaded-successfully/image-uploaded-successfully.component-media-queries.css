@@ -61,6 +61,13 @@
   .toast-container {
     left: auto;
   }
+  #back-button {
+    top: 7%;
+    left: 10%;
+  }
+  #back-button > img {
+    height: 2em;
+  }
 
   /* TEXT */
   .image-link-copy {
@@ -103,6 +110,13 @@
   .toast-container {
     left: auto;
   }
+  #back-button {
+    top: 6%;
+    left: 10%;
+  }
+  #back-button > img {
+    height: 1.7em;
+  }
 
   /* TEXT */
   .image-link-copy {
@@ -113,7 +127,7 @@
     font-size: 1ch;
   }
   h1 {
-    font-size: 1.3rem;
+    font-size: 1em;
   }
   #uploaded-icon {
     font-size: 3.5ch;
