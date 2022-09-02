@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.elliot</groupId>
     <artifactId>image-uploader</artifactId>
-    <version>1.3</version>
+    <version>1.2</version>
     <name>image-uploader</name>
     <description>image-uploader</description>
     <properties>
