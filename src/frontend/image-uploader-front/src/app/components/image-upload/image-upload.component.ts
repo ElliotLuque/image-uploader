@@ -4,14 +4,6 @@ import {ViewRefDirective} from "../../directives/view-ref/view-ref.directive";
 import {ToastComponent} from "../alerts/toast/toast.component";
 import {interval, Subscription} from "rxjs";
 
-enum ImageFileTypes {
-  IMAGE_JPEG = "image/jpeg",
-  IMAGE_PNG = "image/png",
-  IMAGE_WEBP = "image/webp",
-  IMAGE_SVG = "image/svg+xml",
-  IMAGE_TIFF = "image/tiff"
-}
-
 @Component({
   selector: 'app-image-upload',
   templateUrl: './image-upload.component.html',
@@ -28,22 +20,22 @@ export class ImageUploadComponent {
 
   onFileInput(event: any) {
     this.imageFile = event.target.files[0]
-    this.uploadAction()
+    this.uploadFile()
   }
 
   fileDropped(file: File) {
     this.imageFile = file
-    this.uploadAction()
+    this.uploadFile()
   }
 
-  uploadAction = () => {
-    const types = Object.values(ImageFileTypes)
+  uploadFile = () => {
+    const img = new Image()
+    const url = window.URL || window.webkitURL
 
-    if (types.includes(this.imageFile.type as string as ImageFileTypes)) {
-      this.putImage()
-    } else {
-      this.generateToast()
-    }
+    img.onload = () => this.putImage()
+    img.onerror = () => this.generateToast()
+
+    img.src = url.createObjectURL(this.imageFile)
   }
 
   putImage = () => {
