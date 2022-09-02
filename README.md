@@ -3,7 +3,7 @@
 # Image Uploader
 
 
-A simple app for uploading and sharing your images.
+Simple app for uploading and sharing your images.
 
 A challenge by **[devChallenges.io](devChallenges.io)**
 
