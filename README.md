@@ -1,12 +1,10 @@
 <div align="center">
 
-# Image Uploader
-
-
+ # Image Uploader 
 
 Simple app for uploading and sharing your images.
 
-A challenge by **[devChallenges.io](devChallenges.io)**
+A challenge by **[devChallenges.io](https://devchallenges.io/)**
 
 
 ![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)
