@@ -40,20 +40,19 @@ export class ImageUploadComponent {
     const types = Object.values(ImageFileTypes)
 
     if (types.includes(this.imageFile.type as string as ImageFileTypes)) {
-      this.postImage()
+      this.putImage()
     } else {
       this.generateToast()
     }
   }
 
-  postImage = () => {
+  putImage = () => {
     const upload$ = this.imageUploadService.addImage(this.imageFile);
     this.imageUploadService.imageStatus = this.imageUploadService.imgSta.Loading
     this.subscription = upload$
       .subscribe({
         next: data => {
           this.imageUploadService.imageURL = Object.values(data)[4]
-          console.log(this.imageUploadService.imageURL)
           this.imageUploadService.imageStatus = this.imageUploadService.imgSta.Uploaded
         },
         error: () => this.imageUploadService.imageStatus = this.imageUploadService.imgSta.Upload
