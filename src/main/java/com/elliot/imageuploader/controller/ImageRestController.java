@@ -23,7 +23,6 @@ import static com.elliot.imageuploader.entity.ImageContentTypes.*;
 @RestController
 @RequiredArgsConstructor
 @CrossOrigin(origins = "https://image-uploader-elliot.vercel.app")
-@RequestMapping("/api")
 public class ImageRestController {
     private final ImageServiceImpl imageService;
 

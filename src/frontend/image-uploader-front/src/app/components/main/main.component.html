@@ -1,0 +1,11 @@
+<ng-container [ngSwitch]="imageStatus">
+  <ng-container *ngSwitchCase="imgSta.Upload">
+    <app-image-upload></app-image-upload>
+  </ng-container>
+  <ng-container *ngSwitchCase="imgSta.Loading">
+    <app-image-loading></app-image-loading>
+  </ng-container>
+  <ng-container *ngSwitchCase="imgSta.Uploaded">
+    <app-uploaded-successfully></app-uploaded-successfully>
+  </ng-container>
+</ng-container>
