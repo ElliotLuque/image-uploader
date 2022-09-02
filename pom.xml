@@ -13,6 +13,7 @@
     <version>1.2</version>
     <name>image-uploader</name>
     <description>image-uploader</description>
+
     <properties>
         <java.version>18</java.version>
     </properties>
@@ -30,7 +31,6 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk -->
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-java-sdk</artifactId>
@@ -38,7 +38,6 @@
         </dependency>
 
 
-        <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
