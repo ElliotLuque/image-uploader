@@ -21,7 +21,7 @@ export class ImageUploadService{
   private _imageStatus: ImageStatus = ImageStatus.Upload
 
   imageURL!: string
-  baseURL: string = "https://images-uploader-elliot.herokuapp.com/api"
+  baseURL: string = "https://images-image-uploader.up.railway.app/api"
 
   addImage(file: File): Observable<Object> {
     const formData = new FormData();
