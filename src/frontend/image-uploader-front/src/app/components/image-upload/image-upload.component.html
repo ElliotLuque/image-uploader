@@ -8,7 +8,7 @@
   </header>
   <div class="card-container">
     <section class="image-uploader" appDragDrop (fileDropped)="fileDropped($event)">
-      <img draggable="false" class="image-drag-drop" src="./assets/image.svg" alt="img"/>
+      <img width="100" height="100" draggable="false" class="image-drag-drop" src="./assets/image.svg" alt="img"/>
       <input #fileInput style="display: none" (change)="onFileInput($event)" type="file" accept=".jpg, .jpeg, .png">
       <p class="image-uploader-description">Drag & Drop your image here</p>
     </section>
