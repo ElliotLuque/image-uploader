@@ -60,7 +60,7 @@ app-toast {
 
   app-root > *:not(router-outlet, app-footer) {
     justify-content: flex-start;
-    min-height: 86.5vh;
+    min-height: 84vh;
   }
 }
 /* -------- SMALL DEVICES -------- */
