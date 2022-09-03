@@ -2,9 +2,11 @@
 .toast-container {
   position: fixed;
   display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
   flex-flow: column;
+  top: 7%;
   left: 80%;
-  top: 8%;
   z-index: 10;
 }
 

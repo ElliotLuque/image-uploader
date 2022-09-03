@@ -43,6 +43,12 @@ app-root > *:not(router-outlet, app-footer, app-toast) {
   z-index: 1;
 }
 
+/* Toast message */
+app-uploaded-successfully {
+  display: flex;
+  align-items: flex-end;
+}
+
 app-toast {
   position: relative;
   display: inline-block;
@@ -51,6 +57,13 @@ app-toast {
 
 /************** MEDIA QUERIES *************/
 
+
+/* -------- MEDIUM DEVICES, TABLETS -------- */
+@media only screen and (min-width: 640px) and (max-width: 1300px) {
+  app-uploaded-successfully {
+    justify-content: center;
+  }
+}
 
 /* -------- MOBILE --------  */
 @media only screen and (min-width: 180px) and (max-width: 640px) {
@@ -61,6 +74,10 @@ app-toast {
   app-root > *:not(router-outlet, app-footer) {
     justify-content: flex-start;
     min-height: 84vh;
+  }
+
+  app-uploaded-successfully {
+    justify-content: center;
   }
 }
 /* -------- SMALL DEVICES -------- */
