@@ -2,15 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Noto+Sans:wght@500&family=Poppins:wght@500&display=swap');
 
 :root {
-  --green1: #219653;
-  --blue1: #2F80ED;
-  --gray1: #A9A9A9;
-  --gray2: #4F4F4F;
-  --gray3: #828282;
-  --gray4: #BDBDBD;
-  --gray5: #F6F8FB;
-  --gray6: #F2F2F2;
-  --red1: #CC0000;
+  --green1: #219653FF;
+  --blue1: #2F80EDFF;
+  --gray1: #A9A9A9FF;
+  --gray2: #4F4F4FFF;
+  --gray3: #828282FF;
+  --gray4: #BDBDBDFF;
+  --gray5: #F6F8FBFF;
+  --gray6: #F2F2F2FF;
+  --red1: #CC0000FF;
 }
 
 * {
@@ -74,16 +74,4 @@ app-toast {
     min-height: 80.5vh;
   }
 
-}
-
-/* HEIGHT */
-
-@media only screen and (min-height: 0px) and (max-height: 900px) {
-  body {
-    background-color: #FFF;
-  }
-
-  app-root > *:not(router-outlet, app-footer) {
-    min-height: 87.5vh;
-  }
 }
