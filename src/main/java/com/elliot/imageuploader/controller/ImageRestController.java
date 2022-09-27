@@ -26,7 +26,7 @@ public class ImageRestController {
     private final ImageServiceImpl imageService;
 
     @PostMapping("/upload")
-    public ResponseEntity<Object> uploadImage(@RequestParam("imageFile") MultipartFile imageFile)
+    public ResponseEntity<UploadResponse> uploadImage(@RequestParam("imageFile") MultipartFile imageFile)
             throws ExecutionException, InterruptedException {
         CompletableFuture<Image> uploadedImage = imageService.uploadImage(imageFile);
 
