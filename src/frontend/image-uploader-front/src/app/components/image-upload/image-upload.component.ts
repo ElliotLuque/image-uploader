@@ -4,6 +4,14 @@ import {ViewRefDirective} from "../../directives/view-ref/view-ref.directive";
 import {ToastComponent} from "../alerts/toast/toast.component";
 import {interval, Subscription} from "rxjs";
 
+enum ImageFileTypes {
+  PNG = 'image/png',
+  JPG = 'image/jpeg',
+  SVG = 'image/svg+xml',
+  TIFF = 'image/tiff',
+  WEBP = 'image/webp'
+}
+
 @Component({
   selector: 'app-image-upload',
   templateUrl: './image-upload.component.html',
@@ -29,13 +37,19 @@ export class ImageUploadComponent {
   }
 
   uploadFile = () => {
-    const img = new Image()
-    const url = window.URL || window.webkitURL
+    const types = Object.values(ImageFileTypes)
 
-    img.onload = () => this.putImage()
-    img.onerror = () => this.generateToast()
+    if (types.includes(this.imageFile.type as string as ImageFileTypes)) {
+      const img = new Image()
+      const url = window.URL || window.webkitURL
 
-    img.src = url.createObjectURL(this.imageFile)
+      img.onload = () => this.putImage()
+      img.onerror = () => this.generateToast()
+
+      img.src = url.createObjectURL(this.imageFile)
+    } else {
+      this.generateToast()
+    }
   }
 
   putImage = () => {
