@@ -68,7 +68,8 @@ It supports all listed image formats and it allows to upload up to **500MB** ima
 
 # 📜 License
 
-This software is licensed under the terms of the [GPL v3.0 license](LICENSE) 
+This software is licensed under the terms of the [GPL v3.0 license](LICENSE)
+
 [usage]: https://user-images.githubusercontent.com/72250839/188245951-27ccb497-0fbf-4550-8c9c-920bab7f54fe.gif
 [build-badge]: https://github.com/ElliotLuque/image-uploader/actions/workflows/ci.yml
 [license-badge]: https://img.shields.io/github/license/ElliotLuque/image-uploader
